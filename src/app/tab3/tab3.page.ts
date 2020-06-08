@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PhotoService } from '../services/pessoa.service';
+import { Photo } from '../model/pessoas.model'
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +9,5 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
-
+  constructor(private photoService: PhotoService) { }
 }

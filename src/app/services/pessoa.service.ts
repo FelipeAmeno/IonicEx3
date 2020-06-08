@@ -5,6 +5,7 @@ import {
   CameraPhoto, CameraSource
 } from '@capacitor/core';
 const { Camera, Filesystem, Storage } = Plugins;
+import { Photo } from '../model/pessoas.model'
 
 @Injectable({
   providedIn: 'root'
@@ -1055,4 +1056,25 @@ export class PessoaService {
     return d.toFixed(2);
   }
 
+}
+
+export class PhotoService {
+
+  public photos: Photo[] = [];
+
+  constructor() { }
+
+  public async addNewToGallery() {
+    // Take a photo
+    const capturedPhoto = await Camera.getPhoto({
+      resultType: CameraResultType.Uri,
+      source: CameraSource.Camera,
+      quality: 100
+    });
+
+    this.photos.unshift({
+      filepath: "soon...",
+      webviewPath: capturedPhoto.webPath
+    });
+  }
 }
